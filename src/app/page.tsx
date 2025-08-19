@@ -230,7 +230,7 @@ export default function Home() {
                     We are a professional cleaning service specializing in
                     carpet and upholstery cleaning.With years of experience, we
                     understand the unique needs of our clients and tailor our
-                    services to meet those needs. Whether it's a residential or
+                    services to meet those needs. Whether it&apos;s a residential or
                     commercial space, we ensure a thorough and effective clean
                     every time.
                   </p>
@@ -447,9 +447,9 @@ export default function Home() {
                   className="mb-4"
                 />
                 <p className="text-gray-900 text-lg mb-4">
-                  "I had my carpets cleaned by Bright Fibre Cleaning and I
-                  couldn't be happier! They were professional, thorough, and my
-                  carpets look brand new. Highly recommend!"
+                  &quot;I had my carpets cleaned by Bright Fibre Cleaning and I
+                  couldn&apos;t be happier! They were professional, thorough, and my
+                  carpets look brand new. Highly recommend!&quot;
                 </p>
                 <p className="text-gray-700 font-semibold">John Carter</p>
               </div>
@@ -462,9 +462,9 @@ export default function Home() {
                   className="mb-4"
                 />
                 <p className="text-gray-900 text-lg mb-4">
-                  "The team at Bright Fibre Cleaning did an amazing job on my
+                  &quot;The team at Bright Fibre Cleaning did an amazing job on my
                   upholstery. They were friendly, efficient, and the results
-                  were fantastic. Will definitely use their services again!"
+                  were fantastic. Will definitely use their services again!&quot;
                 </p>
                 <p className="text-gray-700 font-semibold">Elizabeth Smith</p>
               </div>

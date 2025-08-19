@@ -305,7 +305,7 @@ const Header = () => {
               rel="noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
-              <img src={Facebook.src} alt="Facebook" width={20} height={20} />
+              <Image src={Facebook.src} alt="Facebook" width={20} height={20} />
             </Link>
             <Link
               href="https://www.instagram.com/brightfibercarpetcleaning/"
@@ -313,7 +313,12 @@ const Header = () => {
               rel="noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
-              <img src={Instagram.src} alt="Instagram" width={20} height={20} />
+              <Image
+                src={Instagram.src}
+                alt="Instagram"
+                width={20}
+                height={20}
+              />
             </Link>
           </div>
         </div>
