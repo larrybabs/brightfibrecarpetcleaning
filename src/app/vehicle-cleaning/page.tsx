@@ -107,19 +107,13 @@ export default function VehicleCleaning() {
 
   const [activeId, setActiveId] = useState<number | null>(null);
 
-  interface AccordionItem {
-    id: number;
-    title: string;
-    description: string;
-  }
-
   const toggleAccordion = (id: number): void => {
     setActiveId(activeId === id ? null : id);
   };
 
   return (
     <div className="">
-      <div className="relative w-full h-[200px] -z-20 md:h-[300px] overflow-hidden group ">
+      <div className="relative w-full h-[200px] -z-20 md:h-[300px] overflow-hidden group">
         <Image
           src={After10.src}
           alt="Background"
@@ -142,7 +136,7 @@ export default function VehicleCleaning() {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl font-bold text-gray-900 mb-6">
-                  More Than Clean, <br/> It’s a Drive to Impress.
+                  More Than Clean, <br /> It’s a Drive to Impress.
                 </h1>
                 <p className="text-base text-gray-700 mb-8">
                   Your car is more than just a way to get from point A to point

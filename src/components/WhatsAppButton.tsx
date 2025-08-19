@@ -11,13 +11,8 @@ export default function WhatsAppButton() {
         rel="noopener noreferrer"
         className="bg-green-500 hover:bg-green-600 text-white font-semibold p-4 rounded-full shadow-lg flex items-center justify-center gap-2 transition duration-300"
       >
-       WhatsApp <MessageCircle size={28} /> 
+        WhatsApp <MessageCircle size={28} />
       </Link>
-
-      {/* Tooltip */}
-      {/* <span className="absolute right-16 w-full bottom-1/2 translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition duration-300">
-        Chat with us
-      </span> */}
     </div>
   );
 }

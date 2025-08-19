@@ -95,12 +95,6 @@ export default function ChairCleaning() {
 
   const [activeId, setActiveId] = useState<number | null>(null);
 
-  interface AccordionItem {
-    id: number;
-    title: string;
-    description: string;
-  }
-
   const toggleAccordion = (id: number): void => {
     setActiveId(activeId === id ? null : id);
   };

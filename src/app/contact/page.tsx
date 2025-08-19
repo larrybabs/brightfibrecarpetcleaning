@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 import After10 from "@/assets/img/after3.jpg";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -43,12 +44,12 @@ export default function Contact() {
                 <h2 className="capitalize text-xl font-semibold mb-1">
                   Call or Whatsapp
                 </h2>
-                <a
+                <Link
                   href="tel:07835756064"
                   className="text-primary cursor-pointer hover:underline duration-300"
                 >
                   <span>07835756064</span>
-                </a>
+                </Link>
               </div>
             </div>
             <div
@@ -63,12 +64,12 @@ export default function Contact() {
                 <h2 className="capitalize text-xl font-semibold mb-1">
                   Mail Us
                 </h2>
-                <a
+                <Link
                   href="mailto:Brightfibercarpetcleaning@gmail.com"
                   className="text-primary cursor-pointer hover:underline duration-300"
                 >
                   <span>Brightfibercarpetcleaning@gmail.com</span>
-                </a>
+                </Link>
               </div>
             </div>
             <div
@@ -90,7 +91,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );

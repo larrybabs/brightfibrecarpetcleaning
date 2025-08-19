@@ -5,6 +5,7 @@ import Book from "@/assets/icon/Calendar.svg";
 import Clean from "@/assets/icon/CleanHand.svg";
 import Relax from "@/assets/icon/Calm.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const About = () => {
@@ -29,7 +30,7 @@ const About = () => {
       <section className="py-16 px-6 md:px-12 lg:px-20 bg-gray-50">
         <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="">
-            <img
+            <Image
               src={bfcLogo.src}
               alt="Bright Fibre Cleaning Logo"
               className="w-full max-h-96 mx-auto md:mx-0 rounded-3xl"
@@ -188,12 +189,12 @@ const About = () => {
           Let Bright Fibre Cleaning transform your home, office, or vehicle with
           our trusted cleaning services. Book your free quote today!
         </p>
-        <a
+        <Link
           href="/contact"
           className="bg-white text-primary font-semibold py-3 px-8 rounded-full hover:px-12 duration-300 transition"
         >
           Get Free Quote
-        </a>
+        </Link>
       </section>
     </div>
   );

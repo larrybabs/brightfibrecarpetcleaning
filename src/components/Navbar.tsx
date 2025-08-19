@@ -4,6 +4,8 @@ import bfcLogo from "@/assets/img/bfcLogo.png";
 import Facebook from "@/assets/icon/facebook.svg";
 import Instagram from "@/assets/icon/instagram.svg";
 import { Phone, Mail, MapPin, Menu, X } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   type NavBarItem = {
@@ -58,18 +60,18 @@ const Header = () => {
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (nav && !(event.target as Element).closest('.mobile-menu')) {
+      if (nav && !(event.target as Element).closest(".mobile-menu")) {
         setNav(false);
         setActiveSubmenu(null);
       }
     };
 
     if (nav) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
       if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     };
   }, [nav]);
@@ -77,13 +79,13 @@ const Header = () => {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (nav) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [nav]);
 
@@ -99,46 +101,61 @@ const Header = () => {
                 <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                 <span>United Kingdom</span>
               </div>
-              
+
               {/* Contact and Social */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                 {/* Contact Info */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm">
                   <div className="flex items-center gap-1">
                     <Phone className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                    <a href="tel:07835756064" className="hover:underline duration-300 truncate">
+                    <Link
+                      href="tel:07835756064"
+                      className="hover:underline duration-300 truncate"
+                    >
                       07835756064
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex items-center gap-1">
                     <Mail className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                    <a
+                    <Link
                       href="mailto:Brightfibercarpetcleaning@gmail.com"
                       className="hover:underline duration-300 truncate"
                     >
                       Brightfibercarpetcleaning@gmail.com
-                    </a>
+                    </Link>
                   </div>
                 </div>
-                
+
                 {/* Social Links */}
                 <div className="flex items-center gap-3">
-                  <a
+                  <Link
                     href="https://www.facebook.com/Brightfibercarpetclean/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:opacity-80 transition-opacity"
                   >
-                    <img src={Facebook.src} alt="Facebook" width={18} height={18} className="sm:w-5 sm:h-5" />
-                  </a>
-                  <a
+                    <Image
+                      src={Facebook.src}
+                      alt="Facebook"
+                      width={18}
+                      height={18}
+                      className="sm:w-5 sm:h-5"
+                    />
+                  </Link>
+                  <Link
                     href="https://www.instagram.com/brightfibercarpetcleaning/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:opacity-80 transition-opacity"
                   >
-                    <img src={Instagram.src} alt="Instagram" width={18} height={18} className="sm:w-5 sm:h-5" />
-                  </a>
+                    <Image
+                      src={Instagram.src}
+                      alt="Instagram"
+                      width={18}
+                      height={18}
+                      className="sm:w-5 sm:h-5"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -149,15 +166,15 @@ const Header = () => {
         <nav className="container mx-auto px-4">
           <div className="flex justify-between items-center py-1">
             {/* Logo */}
-            <a href="/" className="flex-shrink-0">
-              <img 
-                src={bfcLogo.src} 
-                alt="Bright Fibre Logo" 
-                width={80} 
-                height={80} 
-                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24" 
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src={bfcLogo.src}
+                alt="Bright Fibre Logo"
+                width={80}
+                height={80}
+                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
               />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1 xl:space-x-3">
@@ -168,7 +185,7 @@ const Header = () => {
                   onMouseEnter={() => handleMouseEnter(idx)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <a
+                  <Link
                     href={item.submenu ? "/" : item.url}
                     className="text-white hover:text-secondary flex items-center px-3 py-4 duration-300 text-sm xl:text-base"
                     onClick={(e) => item.submenu && e.preventDefault()}
@@ -183,24 +200,31 @@ const Header = () => {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     )}
-                  </a>
+                  </Link>
                   {item.submenu && (
                     <div
                       className={`absolute left-0 top-full w-56 bg-white shadow-xl rounded-lg py-2 transform transition-all duration-200 z-50 ${
-                        hoveredItem === idx ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                        hoveredItem === idx
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible -translate-y-2"
                       }`}
                     >
                       {item.submenu.map((subItem, subIdx) => (
-                        <a
+                        <Link
                           key={subIdx}
                           href={subItem.url}
                           className="block px-4 py-3 mx-2 rounded-xl text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200 text-sm"
                         >
                           {subItem.title}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -209,16 +233,16 @@ const Header = () => {
             </div>
 
             {/* CTA Button - Desktop */}
-            <a
+            <Link
               href="/contact"
               className="hidden lg:block text-primary font-semibold bg-secondary py-2 px-4 xl:py-3 xl:px-6 rounded-full hover:bg-secondary/90 duration-300 text-sm xl:text-base whitespace-nowrap"
             >
               Get free quote
-            </a>
+            </Link>
 
             {/* Mobile Menu Button */}
-            <button 
-              onClick={toggleNav} 
+            <button
+              onClick={toggleNav}
               className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
               aria-label="Toggle menu"
             >
@@ -230,7 +254,10 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {nav && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={toggleNav} />
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={toggleNav}
+        />
       )}
 
       {/* Mobile Slide-in Menu */}
@@ -242,7 +269,7 @@ const Header = () => {
         {/* Menu Header */}
         <div className="flex justify-between items-center px-6 py-4 border-b border-white/20">
           <span className="text-lg font-semibold">Menu</span>
-          <button 
+          <button
             onClick={toggleNav}
             className="p-2 hover:bg-white/10 rounded-lg transition-colors"
             aria-label="Close menu"
@@ -255,36 +282,39 @@ const Header = () => {
         <div className="px-6 py-4 border-b border-white/10 space-y-3">
           <div className="flex items-center gap-2 text-sm">
             <Phone className="h-4 w-4 flex-shrink-0" />
-            <a href="tel:07835756064" className="hover:text-secondary transition-colors">
+            <Link
+              href="tel:07835756064"
+              className="hover:text-secondary transition-colors"
+            >
               07835756064
-            </a>
+            </Link>
           </div>
           <div className="flex items-center gap-2 text-sm">
             <Mail className="h-4 w-4 flex-shrink-0" />
-            <a
+            <Link
               href="mailto:Brightfibercarpetcleaning@gmail.com"
               className="hover:text-secondary transition-colors break-all"
             >
               Brightfibercarpetcleaning@gmail.com
-            </a>
+            </Link>
           </div>
           <div className="flex items-center gap-3 pt-2">
-            <a
+            <Link
               href="https://www.facebook.com/Brightfibercarpetclean/"
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
               <img src={Facebook.src} alt="Facebook" width={20} height={20} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.instagram.com/brightfibercarpetcleaning/"
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
               <img src={Instagram.src} alt="Instagram" width={20} height={20} />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -295,9 +325,9 @@ const Header = () => {
               <li key={idx}>
                 <button
                   className="w-full text-left px-6 py-3 flex justify-between items-center hover:bg-white/10 transition-colors duration-200"
-                  onClick={() => 
-                    item.submenu 
-                      ? toggleSubmenu(idx) 
+                  onClick={() =>
+                    item.submenu
+                      ? toggleSubmenu(idx)
                       : (() => {
                           window.location.href = item.url;
                           setNav(false);
@@ -314,26 +344,35 @@ const Header = () => {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   )}
                 </button>
-                
+
                 {/* Submenu */}
                 {item.submenu && (
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    activeSubmenu === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      activeSubmenu === idx
+                        ? "max-h-96 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
                     <div className="bg-white/5">
                       {item.submenu.map((subItem, subIdx) => (
-                        <a
+                        <Link
                           key={subIdx}
                           href={subItem.url}
                           className="block px-12 py-3 text-sm hover:bg-white/10 transition-colors duration-200"
                           onClick={() => setNav(false)}
                         >
                           {subItem.title}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -345,13 +384,13 @@ const Header = () => {
 
         {/* Mobile CTA Button */}
         <div className="p-6 border-t border-white/20">
-          <a
+          <Link
             href="/contact"
             className="block text-center bg-secondary text-primary font-semibold py-3 px-6 rounded-full hover:bg-secondary/90 transition-colors duration-300"
             onClick={() => setNav(false)}
           >
             Get free quote
-          </a>
+          </Link>
         </div>
       </div>
     </>

@@ -94,14 +94,18 @@ const ImageGallery: React.FC = () => {
 
   const handlePrevImage = () => {
     if (!selectedImage) return;
-    const currentIndex = IMAGES.findIndex((img) => img.src === selectedImage.src);
+    const currentIndex = IMAGES.findIndex(
+      (img) => img.src === selectedImage.src
+    );
     const prevIndex = (currentIndex - 1 + IMAGES.length) % IMAGES.length;
     setSelectedImage(IMAGES[prevIndex]);
   };
 
   const handleNextImage = () => {
     if (!selectedImage) return;
-    const currentIndex = IMAGES.findIndex((img) => img.src === selectedImage.src);
+    const currentIndex = IMAGES.findIndex(
+      (img) => img.src === selectedImage.src
+    );
     const nextIndex = (currentIndex + 1) % IMAGES.length;
     setSelectedImage(IMAGES[nextIndex]);
   };

@@ -101,12 +101,6 @@ export default function Upholstery() {
 
   const [activeId, setActiveId] = useState<number | null>(null);
 
-  interface AccordionItem {
-    id: number;
-    title: string;
-    description: string;
-  }
-
   const toggleAccordion = (id: number): void => {
     setActiveId(activeId === id ? null : id);
   };
@@ -136,7 +130,7 @@ export default function Upholstery() {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl font-bold text-gray-900 mb-6">
-                 Comfort Restored. Beauty Preserved.
+                  Comfort Restored. Beauty Preserved.
                 </h1>
                 <p className="text-base text-gray-700 mb-8">
                   Bright Fibre Upholstery Cleaning provides professional results
