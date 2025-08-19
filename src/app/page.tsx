@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-// import { Check, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import Check from "@/assets/icon/bfcCheck.svg";
 import Book from "@/assets/icon/Calendar.svg";
 import Clean from "@/assets/icon/CleanHand.svg";
@@ -119,7 +119,7 @@ export default function Home() {
       link: "/stain-removal",
     },
     {
-      title: "Vehicle Cleaning",
+      title: "Vehicle Interior",
       description:
         "Interior cleaning for cars, vans, and other vehicles. We remove dirt, stains, and odors for a clean and comfortable ride.",
       image: Vehicle.src,
@@ -257,13 +257,14 @@ export default function Home() {
                     <span className="text-xl font-semibold text-gray-900">
                       Call us or WhatsApp now:
                     </span>
-                    <a
-                      href="tel:07835756064"
-                      className="bg-secondary transition-colors duration-500 text-gray-900 font-semibold px-6 py-3 rounded-full flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                      {/* <Phone className="w-5 h-5" /> */}
+                  
+                    <Link
+               href="tel:07835756064"
+              className="capitalize text-primary font-semibold bg-secondary  py-3 px-8 hover:px-12 rounded-full flex gap-2 items-center hover:bg-secondary/90 duration-300"
+            >
+              <Phone className="w-5 h-5" />
                       <span>07835756064</span>
-                    </a>
+            </Link>
                   </div>
                 </div>
               </div>
@@ -482,7 +483,7 @@ export default function Home() {
           height={540}
           className="mb-4 rounded-3xl"
               />
-              <div className="absolute flex items-center bg-secondary p-4 bottom-4 right-0 shadow-2xl ">
+              <div className="absolute flex items-center bg-secondary p-4 top-72 right-0 shadow-2xl ">
           <div className="bg-white rounded-full p-3 mr-4 flex items-center justify-center">
             <Image
               src={Call.src}
