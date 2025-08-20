@@ -34,6 +34,8 @@ const About = () => {
               src={bfcLogo.src}
               alt="Bright Fibre Cleaning Logo"
               className="w-full max-h-96 mx-auto md:mx-0 rounded-3xl"
+              width={300}
+              height={300}
             />
           </div>
           <div>

@@ -254,7 +254,7 @@ export default function Home() {
                 {/* Call to Action */}
                 <div className="pt-6">
                   <div className="flex items-center space-x-4">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="md:text-xl font-semibold text-primary">
                       Call us or WhatsApp now:
                     </span>
                   
@@ -453,7 +453,7 @@ export default function Home() {
                 </p>
                 <p className="text-gray-700 font-semibold">John Carter</p>
               </div>
-              <div className="bg-[#D9D9D9] w-[340px] h-[360px] rounded-3xl p-8 mt-10 ms-6">
+              <div className="bg-[#D9D9D9] w-[340px] h-[360px] rounded-3xl p-8 mt-10 md:ms-6">
                 <Image
                   src={Quote.src}
                   alt="book"
@@ -483,7 +483,7 @@ export default function Home() {
           height={540}
           className="mb-4 rounded-3xl"
               />
-              <div className="absolute flex items-center bg-secondary p-4 top-72 right-0 shadow-2xl ">
+              <div className="absolute flex items-center bg-secondary p-4 top-42 md:top-72 right-0 shadow-2xl ">
           <div className="bg-white rounded-full p-3 mr-4 flex items-center justify-center">
             <Image
               src={Call.src}
@@ -504,7 +504,7 @@ export default function Home() {
             </div>
             {/* FAQ Section */}
             <div className="w-full flex flex-col justify-center">
-              <h2 className="font-bold text-5xl mb-8">Frequently Asked Questions</h2>
+              <h2 className="font-bold text-4xl md:text-5xl mb-8">Frequently Asked Questions</h2>
               <HomeFaq />
             </div>
           </div>
