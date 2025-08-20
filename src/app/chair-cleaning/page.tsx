@@ -124,11 +124,11 @@ export default function ChairCleaning() {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl font-bold text-gray-900 mb-6 w-10/12">
-                  Sit Back. We’ll Bring the Shine Back.”
+                  Sit Back. We&lsquo;ll Bring the Shine Back.”
                 </h1>
                 <p className="text-base text-gray-700 mb-8">
-                  A chair isn’t just a piece of furniture it’s where life
-                  happens. It’s where you sip your morning coffee, dive into
+                  A chair isn&lsquo;t just a piece of furniture it&lsquo;s where life
+                  happens. It&lsquo;s where you sip your morning coffee, dive into
                   work, share meals with family, or curl up with a good book.
                   Over time, though, chairs collect more than memories: dust,
                   stains, crumbs, and even hidden allergens settle in where you
@@ -137,14 +137,14 @@ export default function ChairCleaning() {
                   <br />
                   Bright Fibre Chair Cleaning restores more than just fabric it
                   restores comfort. Our professional service goes beyond the
-                  surface, targeting the buildup that everyday vacuuming can’t
+                  surface, targeting the buildup that everyday vacuuming can&lsquo;t
                   reach. Using advanced equipment and eco-friendly products, we
                   revive your chairs, leaving them fresh, hygienic, and looking
                   their best.
                   <br />
                   <br />
                   From dining room chairs to office seating and armchairs, we
-                  handle all types of ChairCleaning with care. Whether it’s a
+                  handle all types of ChairCleaning with care. Whether it&lsquo;s a
                   treasured heirloom, your work-from-home seat, or the chairs
                   your guests notice first, we make sure they stay as inviting
                   as the day you bought them.

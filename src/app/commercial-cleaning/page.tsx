@@ -156,7 +156,7 @@ export default function CommercialCleaning() {
                   <br /> <br />
                   At Bright Fibre, we are committed to excellence. We provide
                   customized cleaning plans tailored to your industry and
-                  schedule, whether it’s daily, weekly, or monthly maintenance.
+                  schedule, whether it&lsquo;s daily, weekly, or monthly maintenance.
                   Our services cover offices, retail spaces, hotels,
                   restaurants, schools, healthcare facilities, warehouses, and
                   more. From floors and windows to carpets, upholstery, and

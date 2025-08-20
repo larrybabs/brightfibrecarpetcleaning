@@ -169,34 +169,34 @@ export default function VehicleCleaning() {
             <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
               <div>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight">
-                  More Than Clean, <br className="hidden sm:block" /> It's a
+                  More Than Clean, <br className="hidden sm:block" /> It&lsquo;s a
                   Drive to Impress.
                 </h1>
                 <div className="text-sm sm:text-base text-gray-700 space-y-4">
                   <p>
                     Your car is more than just a way to get from point A to
-                    point B, it's an extension of your lifestyle. From daily
+                    point B, it&lsquo;s an extension of your lifestyle. From daily
                     commutes to weekend road trips, it collects more than miles;
                     it picks up dust, dirt, spills, and sometimes even forgotten
                     coffee stains.
                   </p>
                   <p>
                     Bright Fibre Vehicle Cleaning is designed to give your car
-                    that fresh, like-new feeling inside and out. We don't just
+                    that fresh, like-new feeling inside and out. We don&lsquo;t just
                     wash the surface we go deeper, targeting the hidden grime in
                     VehicleCleaning, carpets, air vents, and every hard-to-reach
                     corner.
                   </p>
                   <p>
-                    Whether it's a quick refresh, a deep interior detail, or a
+                    Whether it&lsquo;s a quick refresh, a deep interior detail, or a
                     full showroom-standard clean, we bring professional
                     precision to every job. From compact cars and SUVs to luxury
                     vehicles and company fleets, we treat every vehicle with the
                     same care and attention it deserves.
                   </p>
                   <p>
-                    At Bright Fibre, we believe a clean car isn't just about
-                    appearance, it's about creating a healthier, more enjoyable
+                    At Bright Fibre, we believe a clean car isn&lsquo;t just about
+                    appearance, it&lsquo;s about creating a healthier, more enjoyable
                     driving experience. Because when your car feels good, so do
                     you.
                   </p>

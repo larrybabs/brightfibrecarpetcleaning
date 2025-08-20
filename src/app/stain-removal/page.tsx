@@ -164,17 +164,17 @@ export default function StainRemoval() {
               <div>
                 <h1 className="text-4xl font-bold text-gray-900 mb-6">
                   Spills Happen. <br />
-                  Stains Don’t Have To.
+                  Stains Don&lsquo;t Have To.
                 </h1>
                 <p className="text-base text-gray-700 mb-8">
-                  Some stains don’t just sit on the surface, they tell stories.
-                  That red wine spill from last weekend’s party, the ink mark
+                  Some stains don&lsquo;t just sit on the surface, they tell stories.
+                  That red wine spill from last weekend&lsquo;s party, the ink mark
                   from an important meeting, or the pet accident that showed up
-                  when you least expected it. The problem? Stains don’t fade
+                  when you least expected it. The problem? Stains don&lsquo;t fade
                   away with time they set, spread, and become harder to ignore.
                   <br />
                   <br />
-                  Bright Fibre Stain Removal is your fabric’s second chance. We
+                  Bright Fibre Stain Removal is your fabric&lsquo;s second chance. We
                   specialize in tackling even the toughest marks coffee, wine,
                   grease, ink, makeup, pet stains, and more using advanced
                   treatments tailored to each fabric type. Unlike DIY
@@ -184,13 +184,13 @@ export default function StainRemoval() {
                   upholstery, carpet, or fabric.
                   <br />
                   <br />
-                  We don’t just mask stains; we eliminate them. Our eco-friendly
+                  We don&lsquo;t just mask stains; we eliminate them. Our eco-friendly
                   solutions lift the problem at its root, leaving your fabrics
                   fresh, spotless, and renewed. Whether at home, in your car, or
                   across your business space, we make “oops” moments disappear.
                   <br />
                   <br />
-                  With Bright Fibre, stains don’t have the final word, you do.
+                  With Bright Fibre, stains don&lsquo;t have the final word, you do.
                 </p>
               </div>
             </div>

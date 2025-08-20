@@ -137,7 +137,7 @@ export default function CarpetCleaning() {
                   that go far beyond what standard vacuuming or rental machines
                   can achieve. Our industrial-grade equipment penetrates deep
                   into carpet fibers, extracting dirt, dust, allergens, and
-                  stubborn stains that household tools simply can’t reach.
+                  stubborn stains that household tools simply can&lsquo;t reach.
                   <br />
                   <br />
                   When it comes to carpet cleaning, quality matters. Cheaper

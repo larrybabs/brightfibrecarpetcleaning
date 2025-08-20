@@ -147,7 +147,7 @@ export default function Upholstery() {
                   low-quality equipment.
                   <br />
                   <br />
-                  At Bright Fibre, we’re dedicated to delivering exceptional
+                  At Bright Fibre, we&lsquo;re dedicated to delivering exceptional
                   service at a fair price. We use only top-of-the-line cleaning
                   tools and eco-friendly products, consistently upgrading to the
                   latest advancements to ensure superior results every time. We
