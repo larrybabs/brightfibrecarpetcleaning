@@ -48,40 +48,59 @@ const accordionData = [
 export default function Upholstery() {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+ // Mouse events
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     setIsDragging(true);
-    updateSliderPosition(e);
+    updateSliderPosition(e.clientX);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isDragging) {
-      updateSliderPosition(e);
+  // Touch events
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsTouching(true);
+    const touch = e.touches[0];
+    updateSliderPosition(touch.clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (isTouching) {
+      const touch = e.touches[0];
+      updateSliderPosition(touch.clientX);
     }
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsTouching(false);
   };
 
-  const updateSliderPosition = (e: React.MouseEvent<HTMLDivElement>) => {
+  const updateSliderPosition = (clientX: number) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
+      const x = clientX - rect.left;
       const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
       setSliderPosition(percentage);
     }
   };
 
-  // Handle mouse events for dragging
+  // Global mouse/touch events
   useEffect(() => {
     const handleGlobalMouseMove = (e: MouseEvent) => {
-      if (isDragging && containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        setSliderPosition(percentage);
+      if (isDragging) {
+        updateSliderPosition(e.clientX);
+      }
+    };
+
+    const handleGlobalTouchMove = (e: TouchEvent) => {
+      if (isTouching) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        updateSliderPosition(touch.clientX);
       }
     };
 
@@ -89,22 +108,35 @@ export default function Upholstery() {
       setIsDragging(false);
     };
 
+    const handleGlobalTouchEnd = () => {
+      setIsTouching(false);
+    };
+
     if (isDragging) {
       document.addEventListener("mousemove", handleGlobalMouseMove);
       document.addEventListener("mouseup", handleGlobalMouseUp);
-      return () => {
-        document.removeEventListener("mousemove", handleGlobalMouseMove);
-        document.removeEventListener("mouseup", handleGlobalMouseUp);
-      };
     }
-  }, [isDragging]);
+
+    if (isTouching) {
+      document.addEventListener("touchmove", handleGlobalTouchMove, {
+        passive: false,
+      });
+      document.addEventListener("touchend", handleGlobalTouchEnd);
+    }
+
+    return () => {
+      document.removeEventListener("mousemove", handleGlobalMouseMove);
+      document.removeEventListener("mouseup", handleGlobalMouseUp);
+      document.removeEventListener("touchmove", handleGlobalTouchMove);
+      document.removeEventListener("touchend", handleGlobalTouchEnd);
+    };
+  }, [isDragging, isTouching]);
 
   const [activeId, setActiveId] = useState<number | null>(null);
 
   const toggleAccordion = (id: number): void => {
     setActiveId(activeId === id ? null : id);
   };
-
   return (
     <div className="">
       <div className="relative w-full h-[200px] -z-20 md:h-[300px] overflow-hidden group ">
@@ -158,66 +190,68 @@ export default function Upholstery() {
                 </p>
               </div>
             </div>
-            {/* Before/After Slider */}
-            <div className="relative">
+             {/* Before/After Slider */}
+            <div className="relative order-1 lg:order-2">
               <div
                 ref={containerRef}
-                className="relative w-full h-96 rounded-lg overflow-hidden shadow-xl cursor-col-resize select-none"
+                className="relative w-full h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-xl cursor-col-resize select-none touch-pan-x"
                 onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                style={{ touchAction: "pan-x" }}
               >
-                {/* Before Image */}
+                {/* After Image (Background) */}
                 <div className="absolute inset-0">
-                  <div className="w-full h-full  flex items-center justify-center">
-                    <Image
-                      src={After1.src}
-                      alt="After cleaning"
-                      width={600}
-                      height={400}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <Image
+                    src={After1.src}
+                    alt="After cleaning"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-green-600 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                     After
                   </div>
                 </div>
 
-                {/* After Image */}
+                {/* Before Image (Clipped) */}
                 <div
                   className="absolute inset-0 overflow-hidden"
                   style={{
                     clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
                   }}
                 >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Image
-                      src={Before1.src}
-                      alt="Before cleaning"
-                      width={600}
-                      height={400}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute bottom-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <Image
+                    src={Before1.src}
+                    alt="Before cleaning"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-red-600 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                     Before
                   </div>
                 </div>
 
                 {/* Slider Handle */}
                 <div
-                  className="absolute top-0 bottom-0 w-1 bg-white shadow-lg z-10 cursor-col-resize"
+                  className="absolute top-0 bottom-0 w-0.5 sm:w-1 bg-white shadow-lg z-10 cursor-col-resize"
                   style={{ left: `${sliderPosition}%` }}
                 >
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg border-2 border-blue-500 flex items-center justify-center">
-                    <div className="w-1 h-4 bg-blue-500 rounded"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full shadow-lg border-2 border-blue-500 flex items-center justify-center">
+                    <div className="w-0.5 sm:w-1 h-3 sm:h-4 bg-blue-500 rounded"></div>
                   </div>
                 </div>
               </div>
 
               {/* Instruction text */}
-              <p className="text-center text-gray-600 mt-4 text-sm">
-                Drag the slider to see the transformation
+              <p className="text-center text-gray-600 mt-3 lg:mt-4 text-xs sm:text-sm">
+                <span className="sm:hidden">Swipe</span>
+                <span className="hidden sm:inline">Drag</span> the slider to see
+                the transformation
               </p>
             </div>
           </div>
